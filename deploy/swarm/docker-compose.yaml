@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  aws-cloudwatch-agent:
+    image: omerha/cloudwatch-log-agent:1.2.2
+    deploy:
+      mode: global
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 5
+        failure_action: rollback
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 30M
