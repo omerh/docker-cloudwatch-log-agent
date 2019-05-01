@@ -1,7 +1,27 @@
 # docker-cloudwatch-log-agent
 
 Amazon cloudwatch log agent in a docker container
-Make to to give the ec2 instance proper role for cloudwatch
+Make to to give the ec2 instance proper [role](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html) for cloudwatch
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogStreams"
+    ],
+      "Resource": [
+        "arn:aws:logs:*:*:*"
+    ]
+  }
+ ]
+}
+```
 
 ```bash
 ./build.sh
