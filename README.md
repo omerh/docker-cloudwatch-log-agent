@@ -1,6 +1,7 @@
 # docker-cloudwatch-log-agent
 
 Amazon cloudwatch log agent in a docker container
+Make to to give the ec2 instance proper role for cloudwatch
 
 ```bash
 ./build.sh
